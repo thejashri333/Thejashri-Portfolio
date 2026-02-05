@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thejashri V M — Portfolio</title>
+  <meta name="description" content="Portfolio of Thejashri V M — Salesforce development, data analytics, Power BI, Python, SQL, and cloud automation." />
+  <style>
+   :root{
+  --bg:#f5f7fa;       /* light clean background */
+  --panel:#ffffff;    /* white panels/cards */
+  --muted:#374151;    /* muted gray text */
+  --text:#0f172a;     /* main dark text */
+  --brand:#2563eb;    /* professional blue */
+  --brand2:#3b82f6;   /* lighter blue */
+  --card:#ffffff;
+  --ring:0 0 0 3px rgba(37,99,235,.35);
+  --blue:#2563eb;
+  --btn-dark:#e5e7eb;
+  --btn-border:rgba(0,0,0,.10);
+}
+html {
+  scroll-padding-top: 15px;
+}
+section {
+  scroll-margin-top: 15px;
+}
+
+html,body{
+  margin:0;
+  background:#f5f7fa;  /* light */
+  color:var(--text);   /* dark text everywhere */
+  font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
+}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#f5f7fa );color:var(--text);font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+ 
+    /* ---------- Header (sticky, visible on light) ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  background:#ffffff;                    /* solid white (no grey haze) */
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 8px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:#111827} /* logo text dark */
+.logo-badge{width:32px;height:32px;border-radius:8px;background:conic-gradient(from 160deg,var(--brand),var(--brand2));box-shadow:0 6px 20px rgba(124,58,237,.20)}
+
+/* Nav links: dark on light header */
+nav a{color:#374151; font-weight:700; margin:0 10px; position:relative}
+/* Active section highlight in header */
+nav a.active{
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 3px;
+}
+    .btn-pill{border-radius:999px;padding:10px 16px; box-shadow:0 0 0 0 rgba(124,58,237,.45), 0 0 30px rgba(124,58,237,.25) inset}
+    nav a{ color:#374151; font-weight:700; }
+nav a.active{ color:#111827; }
+
+.section-title { color:#1f2937; }      /* dark title */
+a{ color:var(--brand); }               /* links stay blue */
+   
+ 
+    /* ---------- Sections ---------- */
+    section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .section-title{font-size:28px;margin:0 0 18px 0;text-align:center}
+    .lead{color:var(--muted);font-size:18px}
+ 
+    /* ---------- HERO ---------- */
+    .hero-wrap{border-top:none;padding:56px 0 36px 0}
+    .hero-grid{
+      display:grid; grid-template-columns:1.4fr .6fr; gap:28px; align-items:center;
+      max-width:1050px; margin:0 auto;
+    }
+    .hero h1{font-size:52px; line-height:1.1; margin:0 0 10px 0; font-weight:900;}
+  /* Strong, accessible accent (no fade) */
+/* Dual-color gradient accent text (works on light backgrounds) */
+.accent{
+  color: var(--brand); /* fallback for older browsers */
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+
+    /* Professional Hero Title */
+    .hero h1 {
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 56px;        /* clean professional size */
+      letter-spacing: -0.5px; /* subtle tightening for premium look */
+      line-height: 1.1;
+      margin: 0 0 10px 0;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+ 
+    /* ✅ Make all 3 HERO buttons identical (icon + text) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      font-size: 18px;
+      font-weight: 300;
+      border-radius: 10px;
+      border: 1px solid var(--btn-border);
+      transition: transform .15s ease, background-color .15s ease;
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));}
+    .btn.neutral{background:var(--btn-dark);}
+    .btn.icon-only {
+      background: var(--btn-dark);
+      width: 45px;
+      height: 45px;
+      padding: 0;
+    }
+    .btn.icon-only img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+ 
+    /* Portrait on the right */
+    .portrait{display:flex;align-items:center;justify-content:center}
+    .portrait .ring{
+      width:230px; height:230px; padding:6px; border-radius:50%;
+      background:conic-gradient(from 160deg,var(--brand),var(--brand2));
+      box-shadow:0 12px 40px rgba(124,58,237,.25);
+    }
+    .portrait img{
+      width:100%; height:100%; display:block; border-radius:50%;
+      object-fit:cover; border:2px solid rgba(255,255,255,.08); background:#0f1627;
+    }
+ 
+    /* ---------- About panel ---------- */
+    #about .section-title {
+      color: #60a5fa;
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    section#about.about-simple {
+      max-width: 900px;
+      margin: 0 auto 24px auto !important;
+      padding: 48px 24px;
+      display: block;
+      font-family: "Times New Roman", Times, serif !important;
+      text-align: center !important;
+    background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 1px 0 rgba(255, 255, 255, 0.04);
+      outline: 1px solid rgba(0, 0, 0, 0.25);
+      outline-offset: 0;
+      -webkit-backdrop-filter: blur(0px);
+      backdrop-filter: blur(0px);
+    }
+    section#about.about-simple * { text-decoration: none !important; }
+
+    /* ✅ MAKE ABOUT CONTENT DARK/READABLE */
+    section#about.about-simple .about-title { color: var(--blue); font-size: 32px; line-height: 1.25; margin: 0 0 12px 0; font-weight: 700; }
+    section#about.about-simple .about-name { color: #111827; font-family: "Times New Roman", Times, serif ; font-size: 20px; margin: 0; font-weight: 700; }
+    section#about.about-simple .about-role { margin: 8px 0 18px 0; color: #374151; font-size: 15.5px; font-weight: 600; }
+    section#about.about-simple .about-body-strong { color: #0f172a; font-size: 20px; line-height: 1.75; font-family: 'Times New Roman', Times, serif; margin: 0 auto 14px auto; max-width: 750px; font-weight: 400;}
+    section#about.about-simple .about-body-strong strong { font-weight: 800 !important; }
+    section#about.about-simple .about-note { color: #374151; font-size: 18px; line-height: 1.8; margin: 10px auto 0 auto; max-width: 790px; font-style: italic; font-weight: 500; }
+
+    section#about.about-simple p, section#about.about-simple h2, section#about.about-simple span { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+ 
+    /* ---------- Experience ---------- */
+    #experience .section-title {
+      color: #2563eb; 
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      font-family: "Times New Roman", Times, serif;
+    }
+/* Make Education heading match Work Experience */
+#education .section-title {
+  color: #2563eb; ;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+    .exp-list {
+      max-width: 940px;
+      margin: 0 auto 24px auto !important;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* Keep your light card override intact */
+    .exp-card,
+.contact-panel,
+.about-simple,
+.card,
+.skill-card,
+.cert-card{
+  background:#ffffff;
+  border:1px solid rgba(0,0,0,.10);
+  color:var(--text);
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+}
+
+    .exp-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 1px 0 rgba(255, 255, 255, 0.04);
+      outline: 1px solid rgba(0, 0, 0, 0.25);
+      outline-offset: 0;
+      font-family: "Times New Roman", Times, serif !important;
+      color: #0f172a;  /* ✅ DARK TEXT */
+    }
+    .exp-card h4 {
+      margin: 0 0 8px 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #60a5fa !important;    
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .exp-card .small {
+      color: #475569 !important;  /* ✅ DARKER MUTED */
+      font-size: 15px;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .exp-card .desc {
+      color: #111827 !important;  /* ✅ DARK CONTENT */
+      font-size: 17px;
+      line-height: 1.75;
+      margin: 0 auto;
+      max-width: 820px;
+      font-weight: 500;
+      text-align: center;
+    }
+ 
+    /* ---------- Projects ---------- */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:0;border-radius:14px;overflow:hidden;position:relative}
+    .thumb{aspect-ratio: 16/9;overflow: hidden;}
+    .thumb img{width:100%;height:100%;display:block;object-fit:cover}
+    #projects .section-title {
+      color: #2563eb; ;
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .project h3 {
+      margin:12px 14px 14px 14px;
+      font-size:18px;
+      color:#60a5fa;   /* blue */
+      text-align:center;    
+    }
+    .card.project h3 { color: #60a5fa !important; }
+    .project .overlay{
+      position:absolute; inset:0; background:rgba(0,0,0,.88);
+      color:#fff; padding:16px; display:flex; flex-direction:column; gap:10px;
+      opacity:0; transform:translateY(8px); transition:opacity .2s ease, transform .2s ease;
+    }
+    .project:hover .overlay{opacity:1; transform:none}
+    .overlay h4{margin:0 0 6px 0;font-size:16px}
+    .overlay p{margin:0; color:#e5e7eb; font-size:14px; line-height:1.6}
+    .tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .tech .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);padding:6px 10px;border-radius:999px;font-size:12px;color:#e5e7eb}
+ 
+    /* ---------- Contact ---------- */
+    #contact .section-title{
+      color: #2563eb; ;
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .contact-sub{color:#475569; text-align:center;margin-top:-8px;margin-bottom:20px} /* ✅ darker */
+    .contact-panel{
+      background:#182131;border:1px solid rgba(255,255,255,.1);border-radius:14px;
+      max-width:760px;margin:0 auto;padding:22px;font-family: "Times New Roman", Times, serif;
+    }
+    .contact-panel label{display:block;margin:10px 0 6px 0;color:#111827;font-size:18px} /* ✅ darker labels on light BG pages */
+    .contact-panel input,.contact-panel textarea{
+      width:100%;background:#0f1627;border:1px solid rgba(255,255,255,.12);
+      color:#fff;border-radius:8px;padding:12px;font-size:17px;font-family: "Times New Roman", Times, serif;
+    }
+    .contact-panel input:focus,.contact-panel textarea:focus{outline:none;box-shadow:var(--ring);border-color:rgba(124,58,237,.6)}
+    .send-btn{width:100%;margin-top:12px;background:#3b82f6;border:none;border-radius:8px;color:#fff;padding:12px;font-weight:600;font-family: "Times New Roman", Times, serif;}
+    .send-btn:hover{background:#2563eb}
+    .contact-icons{display:flex;justify-content:center;gap:16px;margin-top:14px}
+    .contact-icons img{width:24px;height:24px;display:block}
+ 
+    /* ---------- Skills ---------- */
+    #skills{ display:none }
+    #skills .section-title { color: #60a5fa !important; }
+    body.skills-only #skills{ display:block ; }
+    body.skills-only .hero-wrap,
+    body.skills-only main > section:not(#skills){ display:none }
+ 
+    .skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:1000px; margin:0 auto; }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: #e159d3;
+      box-shadow: 0 8px 20px rgba(96,165,250,0.25);
+    }
+    .skill-tag{ display:inline-block; background:rgba(255,255,255,.06); color:#cbd5e1; padding:8px 12px; border-radius:999px; margin:6px; font-size:13px; }
+    .card.skill-card{background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:18px;border-radius:14px}
+    .skill-card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      padding:18px;
+      border-radius:14px;
+    }
+    .skill-card h3 {
+      color: #2563eb; 
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 20px;
+    }
+    .skill-card img {
+      width: 22px !important;
+      height: 22px !important;
+      object-fit:contain;
+      vertical-align:middle;
+    }
+    #skills .back-home-wrap { text-align: center; }
+    #skills #backHome { display: inline-block; }
+ 
+    /* ---------- Certifications (HIDDEN by default) ---------- */
+    #certification { display:none; }
+    #certification .section-title{
+      color:#2563eb; 
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .cert-list{
+      max-width: 940px;
+      margin: 0 auto 24px auto !important;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .cert-card{
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 22px 20px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 1px 0 rgba(255,255,255,0.04);
+      outline: 1px solid rgba(0,0,0,0.25);
+      outline-offset: 0;
+      font-family: "Times New Roman", Times, serif !important;
+      color:#111827; /* ✅ DARK CONTENT */
+      display:grid;
+      grid-template-columns: 56px 1fr auto;
+      gap:14px;
+      align-items:center;
+    }
+    .cert-card img.logo{
+      width:56px; height:56px; object-fit:contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,.25));
+    }
+    .cert-card h4{
+      margin:0 0 6px 0;
+      font-size:18px;
+      color:#60a5fa;
+      font-weight:700;
+    }
+    .cert-card .meta{
+      font-size:14.5px; color:#475569; /* ✅ darker muted */
+    }
+    .cert-card .actions a{
+      display:inline-flex; align-items:center; gap:6px;
+      background:#0f1627; border:1px solid rgba(255,255,255,.12);
+      color:#fff; padding:8px 12px; border-radius:10px; text-decoration:none; font-size:14px;
+    }
+    .cert-card .actions a:hover{ transform: translateY(-2px); }
+ 
+    /* Show ONLY certifications in cert-only mode */
+    body.cert-only main > section:not(#certification){ display:none !important; }
+    body.cert-only #certification{ display:block !important; }
+ 
+    /* ---------- Footer ---------- */
+    footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+ 
+    /* ---------- Animations ---------- */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+    .reveal.show{opacity:1;transform:none}
+ 
+    /* ---------- Responsive ---------- */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .contact-panel{margin:0 8px}
+      .cert-card{ grid-template-columns: 48px 1fr; }
+      .cert-card .actions{ grid-column: 1 / -1; justify-self: start; }
+    }
+    @media (max-width: 560px){
+      .cards{grid-template-columns:1fr}
+      .hero h1{font-size:38px}
+    }
+ 
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none}
+      html{scroll-behavior:auto}
+    }
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <!-- ---------- Header ---------- -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge" aria-hidden="true"></div>
+        <span>Thejashri V M</span>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#about" class="nav-link non-skills">About</a>
+        <a href="#projects" class="nav-link non-skills">Projects</a>
+        <a href="#skills" class="nav-link" id="skillsLink">Skills</a>
+        <a href="#certification" class="nav-link non-skills" id="certLink">Certifications</a>
+        <a href="#contact" class="nav-link non-skills">Contact</a>
+      </nav>
+      <a class="btn btn-pill primary" href="mailto:thejashrimurali03@gmail.com">Hire Me</a>
+    </div>
+  </header>
+ 
+  <main class="container">
+    <!-- ---------- HERO ---------- -->
+    <section class="hero-wrap">
+      <div class="hero-grid">
+        <div class="hero">
+          <h1>I’m Thejashri Murali - <span class="accent">Software Engineer</span><br/></h1>
+          <p class="lead">
+            I build Salesforce applications and explore data analytics to solve real‑world problems, drawing from my Mechatronics background and practical experience with Power BI, Python, SQL, and cloud automation.
+          </p>
+ 
+          <!-- ✅ 3 identical buttons (icon + text) -->
+          <div class="cta-row">
+            <!-- TEXT ONLY -->
+            <a class="btn primary" href="#projects">See My Work</a>
+            <!-- ICON ONLY — GitHub -->
+            <a class="btn icon-only" href="https://github.com/thejashri333" target="_blank" rel="noopener">
+              <img src="https://img.icons8.com/?size=128&id=52539&format=png" alt="GitHub">
+            </a>
+            <!-- ICON ONLY — LinkedIn -->
+            <a class="btn icon-only" href="https://www.linkedin.com/in/thejashri-murali-447943231/" target="_blank" rel="noopener">
+              <img src="https://img.icons8.com/?size=96&id=xuvGCOXi8Wyg&format=png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+ 
+        <div class="portrait">
+          <div class="ring">
+            <img src="https://drive.google.com/file/d/1nOh5ZKSwGUEi_vr0LEFXPRhtu_vDOcaE/view?usp=drivesdk" alt="Portrait" />
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ---------- ABOUT ---------- -->
+     
+    <section id="about" class="about-simple">
+      <h2 class="about-title">About Me</h2>
+      <p class="about-name">Thejashri V M</p>
+      <p class="about-role">
+        Salesforce Developer &amp; Data Analytics Enthusiast &nbsp;|&nbsp; India &nbsp;|&nbsp; Remote &amp; On‑Site Roles
+      </p>
+      <p class="about-body-strong">
+        I'm <strong>Thejashri </strong>, a <strong>Mechatronics Engineering graduate</strong> currently pursuing my
+        <strong>M.Tech in Artificial Intelligence &amp; Data Science </strong>, while working as a <strong>Salesforce Developer</strong> , I’m passionate about
+        <strong>Salesforce Development , Automation and Data Analytics ,</strong> with hands‑on experience in <strong>Apex , Lightning Web Components (LWC) , Salesforce Administration , Power BI , Python , and SQL .</strong>
+      </p>
+      <p class="about-note">
+        I enjoy building reliable, user‑focused solutions—whether it’s automating workflows in Salesforce or transforming complex data into meaningful insights using business intelligence tools. My approach combines engineering logic, curiosity, and continuous learning. I strive to contribute to practical, high‑impact projects that solve real‑world problems.
+      </p>
+    </section>
+ 
+    <!-- ---------- EXPERIENCE ---------- -->
+    <section id="experience" class="reveal">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="exp-list">
+        <div class="exp-card">
+          <h4>Software Engineer — Capgemini (Salesforce Domain)</h4>
+          <div class="small">Oct 2025 – Present</div>
+          <div class="desc">
+            Salesforce application development and customization. Apex, LWC, and SOQL development.
+            Admin configuration (workflows, validation rules, security). Automation using Flows and Process Builder.
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+ <!-- ---------- EDUCATION (NEW) ---------- -->
+    <section id="education" class="reveal">
+      <h2 class="section-title">Education</h2>
+      <div class="exp-list">
+        <div class="exp-card">
+          <h4>M.Tech — Artificial Intelligence &amp; Data Science (Pursuing)</h4>
+          <div class="small">2026 – Present · SRM Institute of Science and Technology</div>
+          <div class="desc">Graduate studies focused on AI, ML, and data-driven systems.</div>
+        </div>
+     
+<div class="exp-card">
+          <h4>B.E. — Mechatronics Engineering (Honours – Smart Mobility Systems)</h4>
+          <div class="small">2021 – 2025 · Sona College of Technology</div>
+          <div class="desc">CGPA: 8.8 · Extra Credits: 18</div>
+        </div>
+
+        <div class="exp-card">
+          <h4>HSC — Holy Angels’ Matric HR. Sec. School</h4>
+          <div class="small">2019 – 2020</div>
+          <div class="desc">Percentage: 81%</div>
+        </div>
+
+        <div class="exp-card">
+          <h4>SSLC — Holy Angels’ Public School</h4>
+          <div class="small">2017 – 2018</div>
+          <div class="desc">Percentage: 70%</div>
+        </div>
+        <!-- Centered "Download My Resume" button under Education -->
+<div style="text-align:center; margin-top: 12px;">
+  <a
+    class="btn primary"
+    href="https://drive.google.com/file/d/1wl--fur-0tv6M2p5cu0e--st18mtSE7Y/view?usp=drivesdk"  -->
+   Download My Resume
+  </a>
+</div>
+    </div>
+    </section>
+
+
+    <!-- ---------- PROJECTS ---------- -->
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards">
+    
+        <!-- Project 1 -->
+        <article class="card project">
+          <figure class="thumb">
+            <img src="https://techieyantechnologies.com/wp-content/uploads/2022/08/Picture10-1024x461.png"
+                 alt="Tri‑Disease Prediction System" loading="lazy" width="1280" height="720">
+          </figure>
+          <h3>Tri‑Disease Prediction System</h3>
+          <div class="overlay">
+            <h4>Description</h4>
+            <p>Multi‑model ML (scikit‑learn) predicting diabetes, heart disease &amp; Parkinson’s with Streamlit interface.</p>
+            <h4>Technologies Used</h4>
+            <div class="tech">
+              <span class="chip">Python</span>
+              <span class="chip">scikit‑learn</span>
+              <span class="chip">Streamlit</span>
+            </div>
+          </div>
+        </article>
+ 
+        <!-- Project 2 -->
+        <article class="card project">
+          <figure class="thumb">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/758cc2187459899.65897d6cd00df.png"
+                 alt="Earth Blush Cosmetic App" loading="lazy" width="1280" height="720">
+          </figure>
+          <h3>Earth Blush Cosmetic App</h3>
+          <div class="overlay">
+            <h4>Description</h4>
+            <p>Built a mini e‑commerce app on Salesforce using LWC + Apex featuring product catalog, cart, stock management, and custom order creation.</p>
+            <h4>Technologies Used</h4>
+            <div class="tech">
+              <span class="chip">Apex</span>
+              <span class="chip">SOQL</span>
+              <span class="chip">LDS</span>
+            </div>
+          </div>
+        </article>
+ 
+        <!-- Project 3 -->
+        <article class="card project">
+          <figure class="thumb">
+            <img src="https://www.slidegeeks.com/media/catalog/product/cache/560x315/o/p/operation_and_sales_planning_of_pharmaceutical_industry_information_pdf_slide01.jpg"
+                 alt="Pharmaceutical Company Sales Operation" loading="lazy" width="1280" height="720">
+          </figure>
+          <h3>Pharmaceutical Company Sales Operation</h3>
+          <div class="overlay">
+            <h4>Description</h4>
+            <p>Built an end‑to‑end Salesforce solution that automates pharma sales from opportunities to delivery—with smart, insight‑driven analytics.</p>
+            <h4>Technologies Used</h4>
+            <div class="tech">
+              <span class="chip">Salesforce Sales Cloud</span>
+              <span class="chip">Salesforce Flows</span>
+              <span class="chip">Apex (Classes &amp; Triggers)</span>
+            </div>
+          </div>
+        </article>
+ 
+        <!-- Project 4 -->
+        <article class="card project">
+          <figure class="thumb">
+            <img src="https://pub.mdpi-res.com/bioengineering/bioengineering-10-00429/article_deploy/html/images/bioengineering-10-00429-g001.png?1680002869"
+                 alt="Oxy Sense‑Wear" loading="lazy" width="1280" height="720">
+          </figure>
+          <h3>Oxy Sense‑Wear</h3>
+          <div class="overlay">
+            <h4>Description</h4>
+            <p>IoT wearable for continuous vital sign monitoring with cloud integration.</p>
+            <h4>Technologies Used</h4>
+            <div class="tech">
+              <span class="chip">IoT</span><span class="chip">MQTT</span><span class="chip">Cloud</span>
+            </div>
+          </div>
+        </article>
+ 
+        <!-- Project 5 (fixed broken src quote, UI unchanged) -->
+        <article class="card project">
+          <figure class="thumb">
+            <img src="https://image.made-in-china.com/2f0j00WZviNVBhlCbT/Keda-Custom-Design-Reaper-Aquatic-Weed-Mower-Boat-River-Water-Hyacinth-Cleaning-Barge.jpg"
+                 alt="Water Hyacinth Reaper" loading="lazy" width="1280" height="720">
+          </figure>
+          <h3>Water Hyacinth Reaper</h3>
+          <div class="overlay">
+            <h4>Description</h4>
+            <p>Designed a multifunctional watercraft to remove invasive water hyacinth and restore aquatic ecosystems.</p>
+            <h4>Technologies Used</h4>
+            <div class="tech">
+              <span class="chip">CAD</span><span class="chip">Mechanics</span><span class="chip">Prototype</span>
+            </div>
+          </div>
+        </article>
+ 
+      </div>
+    </section>
+ 
+    <!-- ---------- CONTACT ---------- -->
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact Me</h2>
+      <p class="contact-sub">Interested in working together? Fill out the form or reach out via social.</p>
+  
+      <div class="contact-panel">
+        <form id="contactForm" action="https://formspree.io/f/xpqlodgz" method="POST">
+  <label>Name</label>
+  <input type="text" name="name" placeholder="Your name" required />
+
+  <label>Email</label>
+  <input type="email" name="_replyto" placeholder="you@example.com" required />
+
+  <label>Message</label>
+  <textarea name="message" rows="4" placeholder="How can I help?" required></textarea>
+
+  <button class="send-btn" type="submit">Send Message</button>
+</form>
+
+<div id="formStatus" style="margin-top:10px; font-size:18px; color:#4ade80;"></div>
+      </div>
+      
+  
+      <div class="contact-icons" aria-label="Contact icons">
+        <a href="mailto:thejashrimurali03@gmail.com"><img src="https://img.icons8.com/?size=160&id=xLIkjgcmFOsC&format=png" alt="Email"></a>
+        <a href="https://github.com/thejashri333" target="_blank" rel="noopener"><img src="https://img.icons8.com/?size=128&id=52539&format=png" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/thejashri-murali-447943231/" target="_blank" rel="noopener"><img src="https://img.icons8.com/?size=96&id=xuvGCOXi8Wyg&format=png" alt="LinkedIn"></a>
+      </div>
+    </section>
+
+    <!-- ---------- SKILLS (moved OUTSIDE contact, hidden by default) ---------- -->
+    <section id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-grid">
+        <!-- Programming & Web -->
+        <div class="skill-card">
+          <h3>Programming &amp; Web</h3>
+          <div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=13441&format=png" alt=""> Python</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=40670&format=png" alt=""> C</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=96&id=J6KcaRLsTgpZ&format=png" alt=""> SQL</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=13441&format=png" alt=""> Apex</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=20909&format=png" alt=""> HTML</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=96&id=21278&format=png" alt=""> CSS</div>
+          </div>
+        </div>
+        <!-- Data & BI -->
+        <div class="skill-card">
+          <h3>Data &amp; BI</h3>
+          <div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=21049&format=png" alt=""> Power BI</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=105440&format=png" alt=""> DAX</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=117561&format=png" alt=""> Power Query</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=12204&format=png" alt=""> Advanced Excel</div>
+          </div>
+        </div>
+        <!-- Cloud & CRM -->
+        <div class="skill-card">
+          <h3>Cloud &amp; CRM</h3>
+          <div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=46467&format=png" alt=""> Salesforce Admin</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=100&id=38869&format=png" alt=""> Salesforce Developer</div>
+            <div class="skill-item"><img src="https://img.icons8.com/?size=80&id=39434&format=png" alt=""> Lightning Web Components</div>
+             <div class="skill-item"><img src="https://img.icons8.com/?size=96&id=38804&format=png" alt=""> Experience Cloud</div>
+          </div>
+        </div>
+      </div>
+      <div class="back-home-wrap" style="margin-top:20px;">
+        <a id="backHome" href="#" style="color:#60a5fa; font-size:16px; font-weight:600;">← Back to Home</a>
+      </div>
+    </section>
+ 
+    <!-- ---------- CERTIFICATIONS (moved OUTSIDE contact, hidden by default) ---------- -->
+    <section id="certification" class="reveal">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-list">
+
+        <!-- Cert 1 -->
+        <div class="cert-card">
+          <img class="logo" src="https://logos-world.net/wp-content/uploads/2020/10/Salesforce-Logo.png" alt="Salesforce">
+          <div>
+            <h4>Salesforce Platform Developer I</h4>
+            <div class="meta">Salesforce · Issued 2026 · Credential ID: <em>SF-PDI-XXXX</em></div>
+          </div>
+          <div class="actions">
+            <a href="https://drive.google.com/file/d/18TVa5ghrg-FP2i9bFr0T7b69nfwcy2VN/view" target="_blank" rel="noopener" aria-label="View certificate">🔗 View</a>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card">
+          <img class="logo" src="https://logos-world.net/wp-content/uploads/2020/10/Salesforce-Logo.png" alt="Salesforce">
+          <div>
+            <h4>Agentforce Specialist</h4>
+            <div class="meta">Salesforce · Issued 2025 · Credential ID: <em>SF-ADM-XXXX</em></div>
+          </div>
+          <div class="actions">
+            <a href="https://drive.google.com/file/d/1svZvM_Urin2CtA0en-9wBaT4f9BJfM9X/view" target="_blank" rel="noopener" aria-label="View certificate">🔗 View</a>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card">
+          <img class="logo" src="https://teddycorp.net/wp-content/uploads/2022/03/certification-exam.png" alt="Power BI">
+          <div>
+            <h4>Microsoft Power BI Data Analyst (PL-300)</h4>
+            <div class="meta">Microsoft · Issued 2024 · Credential ID: <em>PL-300-XXXX</em></div>
+          </div>
+          <div class="actions">
+            <a href="https://learn.microsoft.com/en-us/users/thejashrimurali-4791/credentials/88491b39eab1b41a" target="_blank" rel="noopener" aria-label="View certificate">🔗 View</a>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card">
+          <img class="logo" src="https://tse1.mm.bing.net/th/id/OIP.QJsB7sXtQqxKNjOAdYR-XgAAAA?pid=Api&h=220" alt="Skill Vertex">
+          <div>
+            <h4>Machine learning in python</h4>
+            <div class="meta">Skill Vertex · Issued 2023 · Credential ID: <em>RA22XXXX</em></div>
+          </div>
+          <div class="actions">
+            <a href="https://drive.google.com/file/d/1bKYjFmr7t1zAEvybq_4eGyAEM1Ykbk2d/view" target="_blank" rel="noopener" aria-label="View certificate">🔗 View</a>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:20px;">
+        <a id="backHomeCert" href="#" style="color:#60a5fa; font-size:16px; font-weight:600;">← Back to Home</a>
+      </div>
+    </section>
+ 
+  </main>
+ 
+  <footer>
+    <div>© <span id="year"></span> Thejashri V M · Built with HTML, CSS &amp; JS</div>
+  </footer>
+ 
+  <script>
+    // Prevent redirect on message send
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(contactForm);
+
+  const res = await fetch(contactForm.action, {
+    method: "POST",
+    body: formData,
+    headers: { Accept: "application/json" }
+  });
+
+  if (res.ok) {
+    formStatus.textContent = "🎉 Thanks for reaching out! I’ll get back to you shortly.";
+    contactForm.reset();
+  } else {
+    formStatus.textContent = "❗ Something went wrong. Please try again.";
+  }
+});
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+ 
+    // Scroll spy for nav links (only when not in skills-only or cert-only view)
+    const sections = [...document.querySelectorAll('main section')].filter(s => s.id !== 'skills');
+    const navLinks = [...document.querySelectorAll('.nav-link.non-skills')];
+    const byId = id => document.querySelector('a[href="#'+id+'"]');
+    const spy = new IntersectionObserver(entries=>{
+      if (document.body.classList.contains('skills-only')) return;
+      if (document.body.classList.contains('cert-only')) return;
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          navLinks.forEach(a=>a.classList.remove('active'));
+          const link = byId(entry.target.id);
+          if(link) link.classList.add('active');
+        }
+      })
+    }, {root:null, rootMargin:"-40% 0px -55% 0px", threshold:0});
+    sections.forEach(s=>spy.observe(s));
+ 
+    // Reveal on scroll
+    const revealer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); revealer.unobserve(e.target); }
+      })
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>revealer.observe(el));
+ 
+    // Skills-only view toggle
+    const skillsLink = document.getElementById('skillsLink');
+    const backHome = document.getElementById('backHome');
+    skillsLink.addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.body.classList.remove('cert-only');
+      document.body.classList.add('skills-only');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    backHome.addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.body.classList.remove('skills-only');
+      document.getElementById('about').scrollIntoView({behavior:'smooth'});
+    });
+ 
+    // Certification-only view toggle
+    const certLink = document.getElementById('certLink');
+    const backHomeCert = document.getElementById('backHomeCert');
+    certLink.addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.body.classList.remove('skills-only');
+      document.body.classList.add('cert-only');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    backHomeCert.addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.body.classList.remove('cert-only');
+      document.getElementById('about').scrollIntoView({behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
